@@ -1,8 +1,10 @@
 #!/bin/sh
-
-git init .
 export project_name=$1
 REPO_NAME="https://raw.githubusercontent.com/snhobbs/embedded_project_structure/master/"
+
+if test ! -d ".git" ; then
+  git init .
+fi
 
 if test ! -f "README.md" ; then
   touch README.md
@@ -17,11 +19,21 @@ if test ! -f ".gitignore" ; then
   wget $REPO_NAME"embedded_project.gitignore" .gitignore
 fi
 
-mkdir -p board/{include,source}
+mkdir -p board/include
+mkdir -p board/source
 
 mkdir -p project/source
 # curl default project cmake
 # default main.cpp?
+if test ! -f "CMakeLists.txt" ; then
+  wget $REPO_NAME"tests/CMakeLists.txt"
+fi
+
+cd project/source
+if test ! -f "main.cpp" ; then
+  wget $REPO_NAME"project/source/main.cpp"
+fi
+cd ../.. #Top
 
 mkdir -p tests/source
 touch tests/README.md
