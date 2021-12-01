@@ -25,11 +25,12 @@ mkdir -p board/source
 mkdir -p project/source
 # curl default project cmake
 # default main.cpp?
+cd project
 if test ! -f "CMakeLists.txt" ; then
-  wget $REPO_NAME"CMakeLists.txt"
+  wget $REPO_NAME"project/CMakeLists.txt"
 fi
 
-cd project/source
+cd source
 if test ! -f "main.cpp" ; then
   wget $REPO_NAME"project/source/main.cpp"
 fi

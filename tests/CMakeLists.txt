@@ -100,7 +100,7 @@ target_link_libraries( ${TargetName} ubsan)
 # GTEST
 #----------------------------------------------------------------------
 target_include_directories(${TargetName} PUBLIC "${GTEST_DIR}/include")
-target_link_directories(${TargetName} PUBLIC ${GTEST_DIR}/../lib)
+target_link_directories(${TargetName} PUBLIC ${GTEST_DIR}/../build/lib)
 target_link_libraries(${TargetName} gtest)
 target_link_libraries(${TargetName} pthread)
 #----------------------------------------------------------------------
