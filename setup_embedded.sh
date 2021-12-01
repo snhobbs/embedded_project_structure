@@ -88,4 +88,6 @@ cd ../ # top
 mkdir releases
 mkdir build
 
-# curl default linker scripts
+cmake -B build -DProjectName=$project_name
+make --directory=build
+make test --directory=build
