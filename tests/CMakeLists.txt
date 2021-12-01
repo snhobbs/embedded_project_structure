@@ -12,8 +12,8 @@ set(TargetName "testing")
 add_executable(${TargetName})
 
 message("\n\nTest include directory ${LibraryDirectory}\n\n")
-set(gtest_DIR "googletest/googletest")
-target_include_directories(${TargetName} PUBLIC "${gtest_DIR}/include")
+set(GTEST_DIR "googletest/googletest")
+target_include_directories(${TargetName} PUBLIC "${GTEST_DIR}/include")
 
 set(ProjectSource ${ProjectDirectory}/project/source)
 set(BoardDirectory ${ProjectDirectory}/board)
@@ -99,8 +99,8 @@ target_link_libraries( ${TargetName} ubsan)
 #----------------------------------------------------------------------
 # GTEST
 #----------------------------------------------------------------------
-target_include_directories(${TargetName} PUBLIC "${gtest_DIR}/include")
-target_link_directories(${TargetName} PUBLIC ${gtest_DIR}/../lib)
+target_include_directories(${TargetName} PUBLIC "${GTEST_DIR}/include")
+target_link_directories(${TargetName} PUBLIC ${GTEST_DIR}/../lib)
 target_link_libraries(${TargetName} gtest)
 target_link_libraries(${TargetName} pthread)
 #----------------------------------------------------------------------

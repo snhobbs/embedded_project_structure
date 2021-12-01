@@ -26,7 +26,7 @@ mkdir -p project/source
 # curl default project cmake
 # default main.cpp?
 if test ! -f "CMakeLists.txt" ; then
-  wget $REPO_NAME"tests/CMakeLists.txt"
+  wget $REPO_NAME"CMakeLists.txt"
 fi
 
 cd project/source
