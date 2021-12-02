@@ -1,6 +1,11 @@
 #!/bin/sh
 export project_name=$1
 REPO_NAME="https://raw.githubusercontent.com/snhobbs/embedded_project_structure/master/"
+if test ! -d ".github/workflows/deploy.yaml" ; then
+  mkdir -p .github/workflows
+  cd .github/workflows
+  wget $REPO_NAME"workflow_deploy.yaml"
+fi
 
 if test ! -d ".git" ; then
   git init .
